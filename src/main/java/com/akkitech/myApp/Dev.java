@@ -1,6 +1,7 @@
 package com.akkitech.myApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,7 +13,8 @@ public class Dev {
     */
 
     @Autowired //Field Injection
-    private Laptop laptop;
+    @Qualifier("laptop")
+    private Computer computer; // Loose Coupling
 
 //    Constructor Injection
 //    public Dev(Laptop laptop){
@@ -25,7 +27,7 @@ public class Dev {
 //    }
 
     public void build(){
-        laptop.compile();
+        computer.compile();
         System.out.println("Hello Akki, We're implementing dependency injection.");
     }
 }
